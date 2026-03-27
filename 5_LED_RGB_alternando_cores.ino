@@ -1,50 +1,41 @@
-#define PIN_R 25
-#define PIN_G 26
-#define PIN_B 27
-
-// canais PWM
-#define CANAL_R 0
-#define CANAL_G 1
-#define CANAL_B 2
+#define PIN_R 15
+#define PIN_G 2
+#define PIN_B 4
 
 void setup() {
-  ledcSetup(CANAL_R, 5000, 8);
-  ledcSetup(CANAL_G, 5000, 8);
-  ledcSetup(CANAL_B, 5000, 8);
-
-  ledcAttachPin(PIN_R, CANAL_R);
-  ledcAttachPin(PIN_G, CANAL_G);
-  ledcAttachPin(PIN_B, CANAL_B);
+  ledcAttach(PIN_R, 5000, 8);
+  ledcAttach(PIN_G, 5000, 8);
+  ledcAttach(PIN_B, 5000, 8);
 }
 
 void setColor(int r, int g, int b) {
-  ledcWrite(CANAL_R, r);
-  ledcWrite(CANAL_G, g);
-  ledcWrite(CANAL_B, b);
+  ledcWrite(PIN_R, r);
+  ledcWrite(PIN_G, g);
+  ledcWrite(PIN_B, b);
 }
 
 void loop() {
-  setColor(255, 0, 0);   // vermelho
+  setColor(255, 0, 0);
   delay(1000);
 
-  setColor(0, 255, 0);   // verde
+  setColor(0, 255, 0);
   delay(1000);
 
-  setColor(0, 0, 255);   // azul
+  setColor(0, 0, 255);
   delay(1000);
 
-  setColor(255, 255, 0); // amarelo
+  setColor(255, 255, 0);
   delay(1000);
 
-  setColor(0, 255, 255); // ciano
+  setColor(0, 255, 255);
   delay(1000);
 
-  setColor(255, 0, 255); // magenta
+  setColor(255, 0, 255);
   delay(1000);
 
-  setColor(255, 255, 255); // branco
+  setColor(255, 255, 255);
   delay(1000);
 
-  setColor(0, 0, 0); // desligado
+  setColor(0, 0, 0);
   delay(1000);
 }
